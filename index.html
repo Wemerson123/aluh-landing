@@ -163,6 +163,11 @@
   .pxs.pxs--cover .rings path{stroke:rgba(255,255,255,.3)}
   @media (prefers-reduced-motion:reduce){ .cover-title>*{animation:none} }
 
+  /* cover brand: present, not faint */
+  .brand-mark{gap:12px;color:#fff;text-shadow:0 1px 18px rgba(10,16,20,.35)}
+  .brand-aluh{font:700 clamp(26px,2.7vw,42px)/1 Manrope,sans-serif;letter-spacing:.38em}
+  .brand-jewels{font:italic 400 clamp(30px,3.1vw,48px)/1 "Instrument Serif",serif;color:#e3c58c;letter-spacing:.01em}
+
   @keyframes scrollArrow {
     0%   { transform: translateY(-6px); opacity: 0; }
     40%  { opacity: 1; }
@@ -660,11 +665,11 @@
             "pos": "50% 30%"
       },
       {
-            "h": "aurora-hoops",
-            "t": "Aurora Hoops",
-            "p": "A$49",
-            "src": "https://cdn.shopify.com/s/files/1/0765/7426/1499/files/D5A49AF0-2603-4595-91DF-560B6EFC7DE5.webp?v=1776306827&width=1000",
-            "pos": "50% 30%"
+        "h": "amor-ring-1",
+        "t": "Amor Ring",
+        "p": "A$59",
+        "src": "https://cdn.shopify.com/s/files/1/0765/7426/1499/files/IMG-3993.png?v=1787104549&width=1000",
+        "pos": "50% 28%"
       },
       {
             "h": "frame-hoops",
@@ -674,11 +679,11 @@
             "pos": "50% 30%"
       },
       {
-            "h": "caracol-studs",
-            "t": "Caracol Studs",
-            "p": "A$69",
-            "src": "https://cdn.shopify.com/s/files/1/0765/7426/1499/files/591DF766-4280-40F6-85F6-27AA12259343.webp?v=1776306844&width=1000",
-            "pos": "50% 30%"
+        "h": "lumiere-double-earrings",
+        "t": "Lumiere Double Earrings",
+        "p": "A$79",
+        "src": "https://cdn.shopify.com/s/files/1/0765/7426/1499/files/IMG-4470_07ad6f2c-8a1a-466a-9c08-7e26880d92f0.png?v=1788173025&width=1000",
+        "pos": "50% 30%"
       },
       {
             "h": "hammered-pearl-drop-hoops",
@@ -1090,9 +1095,9 @@
               <motion.header
                 className="absolute top-0 left-0 w-full px-6 md:px-12 py-5 md:py-6 flex justify-between items-center z-[100] pointer-events-none"
                 style={{ opacity: scrollHintOpacity }}>
-                <a href={SHOP} className="flex items-baseline gap-3 text-white select-none pointer-events-auto" aria-label="ALUH Jewels">
-                  <span style={{ fontWeight: 600, fontSize: "16px", letterSpacing: "0.42em" }}>ALUH</span>
-                  <span style={{ fontFamily: "'Instrument Serif', serif", fontStyle: "italic", fontSize: "18px" }}>jewels</span>
+                <a href={SHOP} className="brand-mark flex items-baseline select-none pointer-events-auto" aria-label="ALUH Jewels">
+                  <span className="brand-aluh">ALUH</span>
+                  <span className="brand-jewels">jewels</span>
                 </a>
 
               </motion.header>
