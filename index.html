@@ -96,6 +96,23 @@
     .lk-col--2{margin-top:72px}
   }
   @media (prefers-reduced-motion:reduce){ .lk-col{transform:none!important} }
+
+  /* stay row + phone layout of the lower page */
+  .stay-piece{width:clamp(140px,22vw,340px);margin-inline:-1.5vw}
+  @media (max-width:760px){
+    .lk{padding-top:72px;padding-bottom:88px}
+    .lk-head{margin-bottom:40px;gap:18px}
+    .lk-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:28px 12px}
+    .lk-col{display:contents}
+    .lk-col--2,.lk-col--3{margin-top:0}
+    .lk-cap{flex-direction:column;gap:2px;margin-top:10px;font-size:12px}
+    .stay{min-height:0!important}
+    .stay-inner{min-height:0!important;padding-top:64px!important;padding-bottom:28px!important}
+    .stay-row{position:static!important;padding:0 8px 12px!important}
+    .stay-piece{width:33.333%;margin-inline:0}
+    .stay-piece:nth-child(n+4){display:none}
+    .site-foot{padding-bottom:84px}
+  }
 </style>
 <script src="https://cdn.tailwindcss.com"></script>
 <script>
@@ -783,10 +800,10 @@
 
     function StaySection() {
       return (
-        <section className="relative w-full overflow-hidden" style={{ minHeight: "100vh", backgroundColor: "#ffffff" }}>
+        <section className="stay relative w-full overflow-hidden" style={{ minHeight: "100vh", backgroundColor: "#ffffff" }}>
           <div
             aria-hidden="true"
-            className="absolute inset-x-0 bottom-0 flex items-end justify-center pointer-events-none select-none"
+            className="stay-row absolute inset-x-0 bottom-0 flex items-end justify-center pointer-events-none select-none"
             style={{ gap: "0", paddingInline: "2vw" }}>
             {stayPieces.map((f, i) => (
               <motion.img
@@ -794,22 +811,17 @@
                 src={`${CDN}${f}&width=700`}
                 alt=""
                 loading="lazy"
+                className="stay-piece"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 1.1, ease: "easeOut", delay: 0.15 * i }}
-                style={{
-                  width: "clamp(140px, 22vw, 340px)",
-                  aspectRatio: "1 / 1",
-                  objectFit: "cover",
-                  mixBlendMode: "multiply",
-                  marginInline: "-1.5vw"
-                }}
+                style={{ aspectRatio: "1 / 1", objectFit: "cover", mixBlendMode: "multiply" }}
               />
             ))}
           </div>
 
-          <div className="relative max-w-[1480px] mx-auto px-8 md:px-16 pt-20 md:pt-24 pb-20 md:pb-24 min-h-screen flex flex-col" style={{ gap: "32px" }}>
+          <div className="stay-inner relative max-w-[1480px] mx-auto px-8 md:px-16 pt-20 md:pt-24 pb-20 md:pb-24 min-h-screen flex flex-col" style={{ gap: "32px" }}>
             <motion.div {...blurUp}>
               <div style={{
                 fontFamily: "'Instrument Serif', serif",
@@ -881,7 +893,7 @@
       );
 
       return (
-        <footer className="relative w-full text-black overflow-hidden" style={{ backgroundColor: "#f4ecdc" }}>
+        <footer className="site-foot relative w-full text-black overflow-hidden" style={{ backgroundColor: "#f4ecdc" }}>
           <div className="relative max-w-[1480px] mx-auto px-8 md:px-16 pt-12 md:pt-14 pb-12">
             <motion.div
               {...blurUp}
