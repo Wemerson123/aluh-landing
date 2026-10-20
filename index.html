@@ -346,7 +346,7 @@
 
     function OrbitItem({
       item, title, desc, price, href, index, totalItems, pathValue, itemSizeValue,
-      rotationValue, progress, fill, scaleStrength, focalPoint = 50
+      rotationValue, progress, fill, scaleStrength, focalPoint = 50, ui = 1
     }) {
       const itemOffset = fill ? index / totalItems * 100 : 0;
 
@@ -401,7 +401,7 @@
                   left: "115%",
                   top: "50%",
                   transform: "translateY(-50%)",
-                  width: "min(360px, 95%)",
+                  width: ui > 1 ? `${158 * ui}px` : "min(360px, 95%)",
                   color: "#000",
                   opacity: labelOpacity,
                   pointerEvents: "none",
@@ -410,10 +410,10 @@
                 {title &&
                   <div style={{
                     fontFamily: "'Instrument Serif', serif",
-                    fontSize: "clamp(26px, 3vw, 40px)",
+                    fontSize: ui > 1 ? `${30 * ui}px` : "clamp(26px, 3vw, 40px)",
                     lineHeight: 1.05,
                     letterSpacing: "-0.01em",
-                    marginBottom: "14px",
+                    marginBottom: `${(ui > 1 ? 10 : 14) * ui}px`,
                     whiteSpace: "normal"
                   }}>
                     {title}
@@ -422,7 +422,7 @@
                 {desc &&
                   <div style={{
                     fontWeight: 400,
-                    fontSize: "clamp(13px, 1vw, 15px)",
+                    fontSize: ui > 1 ? `${14 * ui}px` : "clamp(13px, 1vw, 15px)",
                     lineHeight: 1.5,
                     color: "rgba(0,0,0,0.72)"
                   }}>
@@ -431,8 +431,8 @@
                 }
                 {price &&
                   <div style={{
-                    marginTop: "14px",
-                    fontSize: "11px",
+                    marginTop: `${(ui > 1 ? 10 : 14) * ui}px`,
+                    fontSize: `${11 * ui}px`,
                     fontWeight: 500,
                     letterSpacing: "0.25em",
                     textTransform: "uppercase",
@@ -555,6 +555,7 @@
                   fill={fill}
                   scaleStrength={focusStrength}
                   focalPoint={50}
+                  ui={scale < 0.8 ? 1 / scale : 1}
                 />
               ))}
             </motion.div>
@@ -991,8 +992,9 @@
         offset: ["start start", "end end"]
       });
 
-      const rx = useTransform(scrollYProgress, [0, 0.08, 1], ["0%", "55%", "55%"]);
-      const ry = useTransform(scrollYProgress, [0, 0.08, 1], ["0%", "55%", "55%"]);
+      const OPEN = typeof window !== "undefined" && window.innerWidth < 768 ? "120%" : "55%";
+      const rx = useTransform(scrollYProgress, [0, 0.08, 1], ["0%", OPEN, OPEN]);
+      const ry = useTransform(scrollYProgress, [0, 0.08, 1], ["0%", OPEN, OPEN]);
       const clipPath = useMotionTemplate`ellipse(${rx} ${ry} at 50% 50%)`;
 
       const textOpacity = useTransform(scrollYProgress, [0.03, 0.08, 0.15, 0.22, 0.90, 0.98, 1], [0, 1, 1, 0, 0, 1, 1]);
@@ -1058,7 +1060,7 @@
               {/* Clip-path reveal with orbit */}
               <motion.div
                 className="absolute z-20 flex items-center justify-center overflow-hidden"
-                style={{ clipPath, rotate: -15, width: "150vw", height: "150vh", left: "-25vw", top: "-25vh" }}>
+                style={{ clipPath, rotate: -15, width: OPEN === "55%" ? "150vw" : "220vw", height: "150vh", left: OPEN === "55%" ? "-25vw" : "-60vw", top: "-25vh" }}>
                 <div className="absolute inset-0 bg-white" />
                 <div className="relative flex flex-col items-center justify-center" style={{ width: "100vw", height: "100vh", transform: "rotate(15deg)" }}>
                   <motion.div className="w-[90vw] max-w-[1200px] aspect-square relative z-0">
