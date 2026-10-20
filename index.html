@@ -167,15 +167,16 @@
 
   /* floating shop button: fixed, gently drifting, legible on photo, white and cream */
   .shop-float{position:fixed;right:clamp(16px,3vw,40px);bottom:clamp(16px,3vw,40px);z-index:200;
-    display:inline-flex;align-items:center;gap:10px;padding:14px 20px 14px 22px;border-radius:999px;
-    background:#000;color:#fff;font:500 11px/1 Manrope,sans-serif;letter-spacing:.3em;text-transform:uppercase;
-    box-shadow:0 10px 30px -12px rgba(0,0,0,.45);
+    display:inline-flex;align-items:center;gap:12px;padding:17px 26px 17px 30px;border-radius:999px;
+    background:linear-gradient(120deg,#c79f5c 0%,#ecd39f 45%,#d6b97b 70%,#b98e4c 100%);color:#012921;
+    font:700 13px/1 Manrope,sans-serif;letter-spacing:.3em;text-transform:uppercase;
+    box-shadow:0 0 0 1px rgba(255,240,205,.55) inset,0 14px 34px -10px rgba(0,0,0,.55),0 0 28px -6px rgba(214,185,123,.65);
     animation:shopIn .9s cubic-bezier(.16,1,.3,1) 1.4s both, shopFloat 4.5s ease-in-out 2.3s infinite;
     transition:background-color .25s,color .25s}
   .shop-float svg{transition:transform .3s cubic-bezier(.16,1,.3,1)}
-  .shop-float:hover{background:#fff;color:#000;box-shadow:inset 0 0 0 1px #000,0 10px 30px -12px rgba(0,0,0,.45)}
+  .shop-float:hover{background:#012921;color:#ecd39f;box-shadow:inset 0 0 0 1px #d6b97b,0 14px 34px -10px rgba(0,0,0,.55)}
   .shop-float:hover svg{transform:translate(2px,-2px)}
-  .shop-float:focus-visible{outline:2px solid #fff;outline-offset:3px;box-shadow:0 0 0 5px #000}
+  .shop-float:focus-visible{outline:2px solid #fff;outline-offset:3px;box-shadow:0 0 0 5px #012921}
   @keyframes shopIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
   @keyframes shopFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
   @media (prefers-reduced-motion:reduce){ .shop-float{animation:none} }
@@ -1134,7 +1135,7 @@
 
           <a className="shop-float" href="shop.html">
             <span>Shop</span>
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
               <path d="M7 17L17 7M9 7h8v8" />
             </svg>
           </a>
