@@ -198,7 +198,10 @@
   @keyframes coverRiseSoft{from{opacity:0;transform:translateY(18px)}to{opacity:.78;transform:none}}
   .cover-title>.cover-sub{animation-name:coverRiseSub}
   @keyframes coverRiseSub{from{opacity:0;transform:translateY(18px)}to{opacity:.92;transform:none}}
-  .pxs.pxs--cover .rings path{stroke:rgba(255,255,255,.3)}
+  .pxs.pxs--cover .rings{display:none}
+  @media (max-aspect-ratio:1/1){
+    .pxs.pxs--cover .scene{transform:translate(-62%,-50%)}
+  }
   @media (prefers-reduced-motion:reduce){ .cover-title>*{animation:none} }
 
   /* cover brand: present, not faint */
@@ -218,7 +221,7 @@
   }
 
   /* ---------- impact section (portrait + rings) ---------- */
-  .pxs{position:relative;width:100%;height:100vh;overflow:hidden;background:#3a5462;color:#fff;
+  .pxs{position:relative;width:100%;height:100vh;overflow:hidden;background:#8a6543;color:#fff;
     --vw:100vw;--vh:100vh;
     --sc:max(calc(var(--vw) / 1280), calc(var(--vh) / 800));
     --u:clamp(.72px, min(calc(var(--vw) / 1280), calc(var(--vh) / 800)), 3px)}
@@ -664,8 +667,8 @@
         <section ref={ref} className={cover ? "pxs pxs--cover" : "pxs"} aria-label={cover ? undefined : "Made to shine with you"} aria-hidden={cover ? "true" : undefined}>
           <div className="scene">
             <img
-              src="https://d2ol7oe51mr4n9.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/6576c4b6-8ca9-4def-abeb-84169522351f.jpg"
-              alt="Portrait of a woman with a black bob in a sculptural black collar, looking up against a slate-blue wall"
+              src="assets/cover-model-v3.webp"
+              alt="Model wearing ALUH gold and pearl drop earrings with a white halter top"
               draggable="false"
             />
             <svg className="rings" viewBox="0 0 1280 800" preserveAspectRatio="none" aria-hidden="true" focusable="false">
@@ -1057,10 +1060,10 @@
               {/* Cover: portrait + ring arcs */}
               <ImpactSection cover />
 
-              {/* Cover logo: the client's gold ALUH mark, bottom-left on the slate wall */}
+              {/* Cover logo: the client's ALUH wordmark in gold, bottom-left on the caramel wall */}
               <div className="cover-logo absolute z-10 select-none">
                 <h1 className="sr-only">ALUH Jewels — Sophisticated Brazilian Jewellery</h1>
-                <img src="assets/aluh-wordmark.webp" alt="ALUH" width="900" height="211" draggable="false" />
+                <img src="assets/aluh-wordmark-new-gold.webp" alt="ALUH" width="694" height="296" draggable="false" />
               </div>
 
               {/* Scroll hint */}
