@@ -3,7 +3,22 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="robots" content="noindex" />
+<meta name="robots" content="noindex, follow" />
+<link rel="canonical" href="https://www.aluhjewels.com/">
+<link rel="icon" type="image/webp" href="assets/aluh-logo-mark.webp">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ALUH Jewels">
+<meta property="og:locale" content="en_AU">
+<meta property="og:title" content="ALUH Jewels — Made to Shine With You">
+<meta property="og:description" content="Sophisticated Brazilian jewellery uniquely designed to shine with you.">
+<meta property="og:url" content="https://www.aluhjewels.com/">
+<meta property="og:image" content="https://www.aluhjewels.com/assets/cover-model-v3.webp">
+<meta property="og:image:alt" content="Model wearing ALUH gold and pearl earrings">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="ALUH Jewels — Made to Shine With You">
+<meta name="twitter:description" content="Sophisticated Brazilian jewellery uniquely designed to shine with you.">
+<meta name="twitter:image" content="https://www.aluhjewels.com/assets/cover-model-v3.webp">
+
 <title>ALUH Jewels — Made to Shine With You</title>
 <meta name="description" content="Sophisticated Brazilian jewellery uniquely designed to shine with you." />
 
@@ -339,7 +354,8 @@
     addEventListener('keydown',function(e){ if(!done&&e.key!=='Tab') finish(); });
   })();
   </script>
-  <div id="root"></div>
+  <div id="root"><div style="padding:48px;text-align:center"><h1>ALUH Jewels</h1><p>Made to shine with you.</p><a href="shop.html">Explore the shop</a> · <a href="https://shop.aluhjewels.com/collections">Shop on Shopify</a></div></div>
+  <noscript><style>.opening{display:none!important}html.is-opening,html.is-opening body{overflow:auto!important}</style><p>Enable JavaScript for the full experience, or <a href="https://shop.aluhjewels.com/collections">shop ALUH Jewels on Shopify</a>.</p></noscript>
 
   <script type="text/babel" data-presets="react">
 (function () {
@@ -356,8 +372,8 @@
       animate
     } = window.FM;
 
-    const SHOP = "https://www.aluhjewels.com";
-    const CDN = SHOP + "/cdn/shop/files/";
+    const SHOP = "https://shop.aluhjewels.com";
+    const CDN = "https://cdn.shopify.com/s/files/1/0765/7426/1499/files/";
 
     /* ============================================================
        OrbitImages
@@ -871,10 +887,16 @@
               <p className="mb-6" style={{ fontSize: "15px", lineHeight: 1.55, color: "rgba(0,0,0,0.78)" }}>
                 Be the first to know about new collections and exclusive offers from ALUH Jewels.
               </p>
-              <form className="flex items-center border-b border-black/40 pb-2 gap-3" onSubmit={(e) => e.preventDefault()}>
+              <form className="flex items-center border-b border-black/40 pb-2 gap-3" action={`${SHOP}/contact#contact_form`} method="post">
+                <input type="hidden" name="form_type" value="customer" />
+                <input type="hidden" name="utf8" value="✓" />
+                <input type="hidden" name="contact[tags]" value="newsletter" />
                 <label htmlFor="stay-email" className="sr-only">Email</label>
                 <input
                   id="stay-email"
+                  name="contact[email]"
+                  autoComplete="email"
+                  required
                   type="email"
                   placeholder="your@email.com"
                   className="bg-transparent flex-1 outline-none"
