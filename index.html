@@ -887,27 +887,14 @@
               <p className="mb-6" style={{ fontSize: "15px", lineHeight: 1.55, color: "rgba(0,0,0,0.78)" }}>
                 Be the first to know about new collections and exclusive offers from ALUH Jewels.
               </p>
-              <form className="flex items-center border-b border-black/40 pb-2 gap-3" action={`${SHOP}/contact#contact_form`} method="post">
-                <input type="hidden" name="form_type" value="customer" />
-                <input type="hidden" name="utf8" value="✓" />
-                <input type="hidden" name="contact[tags]" value="newsletter" />
-                <label htmlFor="stay-email" className="sr-only">Email</label>
-                <input
-                  id="stay-email"
-                  name="contact[email]"
-                  autoComplete="email"
-                  required
-                  type="email"
-                  placeholder="your@email.com"
-                  className="bg-transparent flex-1 outline-none"
-                  style={{ fontSize: "15px", color: "#000" }}
-                />
-                <button type="submit" style={{
+              <a className="flex items-center border-b border-black/40 pb-2 gap-3" href={`${SHOP}/#contact_form`} aria-label="Subscribe to email updates on the ALUH Jewels store">
+                <span className="flex-1" style={{ fontSize: "15px", color: "rgba(0,0,0,0.6)" }}>Email updates</span>
+                <span style={{
                   fontSize: "11px", fontWeight: 500, letterSpacing: "0.25em", textTransform: "uppercase", color: "#000"
                 }}>
                   Subscribe →
-                </button>
-              </form>
+                </span>
+              </a>
             </motion.div>
           </div>
         </section>

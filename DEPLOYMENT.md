@@ -22,7 +22,7 @@ Referência oficial: https://docs.github.com/en/pages/configuring-a-custom-domai
 
 Canonical, Open Graph, Twitter e sitemap preparados. noindex, follow e robots Disallow mantidos durante migração, enquanto a propagação local ainda leva www à Shopify e o apex mantém AAAA antigo/certificado inválido. Depois do DNS/certificado, confirmar Settings > Pages > Enforce HTTPS. Executar `python3 scripts/activate-seo.py` com rede: valida HTTPS/conteúdo das duas páginas, redirect apex e antiga URL github.io; só então libera metas e robots. Revisar diff, commit, push e revalidar publicado. Qualquer falha mantém arquivos intactos.
 
-Search Console/Analytics não configurados. Newsletter usa POST nativo Shopify /contact (form_type=customer, contact[email], contact[tags]=newsletter), sem simular sucesso. Validar entrega com email autorizado; nenhum cadastro real enviado.
+Search Console/Analytics não configurados. Newsletter da landing abre o formulário nativo em https://shop.aluhjewels.com/#contact_form. Não fazer POST cross-origin para /contact: falta o token CAPTCHA fornecido pelo tema Shopify. A inscrição é concluída na loja, sem desabilitar CAPTCHA ou enviar email na URL. Validar entrega com email autorizado; nenhum cadastro real enviado.
 
 ## Testes e dependências
 
