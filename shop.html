@@ -218,7 +218,7 @@ footer{border-top:1px solid var(--line);padding:28px var(--pad);display:flex;jus
   var grid=$('grid'), more=$('more');
   var img=function(u,w){return u+(u.indexOf('?')>-1?'&':'?')+'width='+w};
   var money=function(n){return 'A$'+(n%1?n.toFixed(2):n.toFixed(0))};
-  var esc=function(t){var d=document.createElement('div');d.textContent=t;return d.innerHTML};
+  var esc=function(t){var d=document.createElement('div');d.textContent=t;return d.innerHTML.replace(/"/g,'&quot;').replace(/'/g,'&#39;')};
   function match(p,c){return c==='all'||(c==='new'?p.n:c==='sale'?p.c>0:p.g.indexOf(c)>-1)}
 
   $('total').textContent=DATA.length+' pieces';
